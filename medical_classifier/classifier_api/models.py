@@ -5,6 +5,7 @@ class Catalog(models.Model):
     id = models.CharField(
         verbose_name='идентификатор',
         primary_key=True,
+        max_length=256,
      )
     title = models.CharField(
         verbose_name='наименование',
@@ -45,6 +46,7 @@ class CatalogItem(models.Model):
     id = models.CharField(
         verbose_name='идентификатор',
         primary_key=True,
+        max_length=256,
     )
     catalog_id = models.ForeignKey(
         Catalog,
@@ -61,6 +63,7 @@ class CatalogItem(models.Model):
     value = models.CharField(
         verbose_name='значение',
         null=False,
+        max_length=126,
     )
 
     def __str__(self):
