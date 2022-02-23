@@ -128,3 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .idea
+/temp/
+/test_data/1.2.643.5.1.13.13.11.1522_4.52_XLS.zip
+/test_data/1.2.643.5.1.13.13.99.2.114_2.988_XLS.zip
+/test_data/1.2.643.5.1.13.13.99.2.923_3.4_XLS.zip

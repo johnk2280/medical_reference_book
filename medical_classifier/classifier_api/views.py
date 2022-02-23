@@ -36,4 +36,4 @@ class CatalogItemViewSet(
     """
 
     serializer_class = CatalogItemSerializer
-    queryset = Catalog.objects.all()
+    queryset = CatalogItem.objects.all()
