@@ -72,4 +72,3 @@ class CatalogItem(models.Model):
     class Meta:
         verbose_name = 'catalog item'
         verbose_name_plural = 'catalog items'
-
