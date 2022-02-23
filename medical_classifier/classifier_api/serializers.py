@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
-from models import Catalog
-from models import CatalogItem
+from .models import Catalog
+from .models import CatalogItem
 
 
 class CatalogSerializer(serializers.ModelSerializer):
