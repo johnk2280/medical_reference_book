@@ -4,9 +4,9 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from .views import CatalogItemViewSet
-from .views import CatalogItemUploadView
+from .views import CatalogItemFileUploadView
 from .views import CatalogViewSet
-from .views import CatalogUploadView
+from .views import CatalogFileUploadView
 
 
 app_name = 'classifier_api'
@@ -19,6 +19,6 @@ router.register(r'catalog_items', CatalogItemViewSet, basename='catalog_items')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('catalogs_upload/', CatalogUploadView.as_view()),
-    path('catalog_items_upload/', CatalogItemUploadView.as_view()),
+    path('catalogs_upload/', CatalogFileUploadView.as_view()),
+    path('catalog_items_upload/', CatalogItemFileUploadView.as_view()),
 ]
