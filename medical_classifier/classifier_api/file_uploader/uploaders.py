@@ -7,14 +7,16 @@ class CatalogFileUploader(FileUploader):
 
 
 class CatalogItemFileUploader(FileUploader):
-    pass
+    def save(self) -> bool:
+        Catalog.objects.bulk_create(
+            map(
+                lambda x: self.models_mapper[self.model_name](**x),
+                self.get_reader(),
+            )
+        )
+        try:
+            self.file.close()
+        except AttributeError:
+            pass
 
-    # def save(self):
-    #     catalogs = self.read()
-    #     new_records = Catalog.objects.bulk_create(
-    #         map(
-    #             lambda x: Catalog(**x),
-    #             catalogs,
-    #         )
-    #     )
-    #     return True
+        return True

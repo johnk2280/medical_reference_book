@@ -79,4 +79,22 @@ class CatalogItemFileUploadView(APIView):
     parser_classes = (MultiPartParser, FileUploadParser)
 
     def post(self, request) -> Response:
-        pass
+        try:
+            file = request.data.get('text').temporary_file_path()
+        except AttributeError:
+            file = request.data.get('file')
+
+        parent_id = file.name.split('_')[0]
+        uploader = CatalogItemFileUploader(
+            file,
+            'catalog_item',
+            parent_id=parent_id,
+        )
+        uploader.save()
+        return Response(
+            {
+                'status': 'ok',
+                'message': 'file uploaded'
+            },
+            status=status.HTTP_201_CREATED
+        )
